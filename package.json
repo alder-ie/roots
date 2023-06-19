@@ -1,0 +1,22 @@
+{
+  "name": "roots",
+  "version": "0.0.1",
+  "description": "Roots is a solid foundation for a corporate production application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alder-ie/roots.git"
+  },
+  "author": "Jordan Harrison",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alder-ie/roots/issues"
+  },
+  "homepage": "https://github.com/alder-ie/roots#readme",
+  "dependencies": {
+    "turbo": "1.10.3"
+  }
+}
