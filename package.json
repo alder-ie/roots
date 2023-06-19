@@ -18,5 +18,10 @@
   "homepage": "https://github.com/alder-ie/roots#readme",
   "dependencies": {
     "turbo": "1.10.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.6.5",
+    "@commitlint/config-conventional": "17.6.5",
+    "husky": "8.0.3"
   }
 }
