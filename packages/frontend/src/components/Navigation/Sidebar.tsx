@@ -23,12 +23,10 @@ export interface LinkItemProps {
 const Sidebar = ({ onClose, linkItems, ...rest }: SidebarProps) => {
   return (
     <Box
+      sx={styles.box}
       bg={useColorModeValue('white', 'gray.900')}
       borderRight="1px"
       borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-      w={{ base: 'full', md: 60 }}
-      pos="fixed"
-      h="full"
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
@@ -47,3 +45,11 @@ const Sidebar = ({ onClose, linkItems, ...rest }: SidebarProps) => {
 }
 
 export default Sidebar
+
+const styles = {
+  box: {
+    w: { base: 'full', md: 60 },
+    pos: 'fixed',
+    h: 'full'
+  }
+}

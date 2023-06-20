@@ -1,21 +1,14 @@
 import { FC, ReactNode } from 'react'
 import { FiHome, FiMenu, FiMoon, FiSun } from 'react-icons/fi'
 import {
-  Avatar,
   Box,
   Button,
-  Center,
   Divider,
   Drawer,
   DrawerContent,
   Flex,
   HStack,
   IconButton,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
   Stack,
   useColorMode,
   useColorModeValue,
@@ -24,6 +17,7 @@ import {
 
 import Sidebar from './Sidebar'
 import { LinkItemProps } from './Sidebar'
+import UserMenu from './UserMenu'
 
 interface NavigationProps {
   children: ReactNode
@@ -32,6 +26,11 @@ interface NavigationProps {
 const linkItems: Array<LinkItemProps> = [
   { name: 'Home', href: '/', icon: FiHome }
 ]
+
+const user = {
+  name: 'John Doe',
+  avatar: ''
+}
 
 const Navigation: FC<NavigationProps> = ({ children }) => {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -57,15 +56,9 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
         </DrawerContent>
       </Drawer>
       <Flex
-        ml={{ base: 0, md: 40 }}
-        pl={{ base: 4, md: 24 }}
-        pr="4"
-        height="20"
-        alignItems="center"
+        sx={styles.topBar}
         bg={useColorModeValue('white', 'gray.900')}
-        borderBottomWidth="1px"
         borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
-        justifyContent="flex-start"
       >
         <IconButton
           display={{ base: 'flex', md: 'none' }}
@@ -80,38 +73,7 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
             <Button onClick={toggleColorMode} variant="ghost">
               {colorMode === 'light' ? <FiMoon /> : <FiSun />}
             </Button>
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={'full'}
-                variant={'link'}
-                cursor={'pointer'}
-                minW={0}
-              >
-                <Avatar
-                  size={'sm'}
-                  src={'https://avatars.dicebear.com/api/male/username.svg'}
-                />
-              </MenuButton>
-              <MenuList alignItems={'center'}>
-                <br />
-                <Center>
-                  <Avatar
-                    size={'2xl'}
-                    src={'https://avatars.dicebear.com/api/male/username.svg'}
-                  />
-                </Center>
-                <br />
-                <Center>
-                  <p>Username</p>
-                </Center>
-                <br />
-                <MenuDivider />
-                <MenuItem>Your Servers</MenuItem>
-                <MenuItem>Account Settings</MenuItem>
-                <MenuItem>Logout</MenuItem>
-              </MenuList>
-            </Menu>
+            <UserMenu user={user} />
           </Stack>
         </HStack>
       </Flex>
@@ -123,3 +85,15 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
 }
 
 export default Navigation
+
+const styles = {
+  topBar: {
+    ml: { base: 0, md: 40 },
+    pl: { base: 4, md: 24 },
+    pr: '4',
+    height: '20',
+    alignItems: 'center',
+    borderBottomWidth: '1px',
+    justifyContent: 'flex-start'
+  }
+}
