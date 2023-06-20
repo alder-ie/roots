@@ -50,6 +50,7 @@ const styles = {
   box: {
     w: { base: 'full', md: 60 },
     pos: 'fixed',
-    h: 'full'
+    h: 'full',
+    zIndex: '3'
   }
 }

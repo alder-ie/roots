@@ -77,7 +77,7 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
           </Stack>
         </HStack>
       </Flex>
-      <Box ml={{ base: 0, md: 60 }} p="4">
+      <Box ml={{ base: 0, md: 60 }} pt="24" px="6">
         {children}
       </Box>
     </Box>
@@ -88,8 +88,9 @@ export default Navigation
 
 const styles = {
   topBar: {
-    ml: { base: 0, md: 40 },
-    pl: { base: 4, md: 24 },
+    w: 'full',
+    pos: 'fixed',
+    zIndex: '2',
     pr: '4',
     height: '20',
     alignItems: 'center',
