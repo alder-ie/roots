@@ -65,6 +65,7 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
           variant="ghost"
           onClick={onOpen}
           aria-label="open menu"
+          ml="2"
           icon={<FiMenu />}
         />
         <Divider flexGrow="1" borderColor="rgba(0,0,0,0)" />
