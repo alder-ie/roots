@@ -1,13 +1,10 @@
 import { FC, ReactNode } from 'react'
-import { IconType } from 'react-icons'
 import { FiHome, FiMenu, FiMoon, FiSun } from 'react-icons/fi'
 import {
   Avatar,
   Box,
-  BoxProps,
   Button,
   Center,
-  CloseButton,
   Divider,
   Drawer,
   DrawerContent,
@@ -20,65 +17,30 @@ import {
   MenuItem,
   MenuList,
   Stack,
-  Text,
   useColorMode,
   useColorModeValue,
   useDisclosure
 } from '@chakra-ui/react'
 
-import NavItem from './NavItem'
+import Sidebar from './Sidebar'
+import { LinkItemProps } from './Sidebar'
 
-interface LinkItemProps {
-  name: string
-  href: string
-  icon: IconType
-}
-
-interface SidebarProps extends BoxProps {
-  onClose: () => void
-}
-
-interface NavbarProps {
+interface NavigationProps {
   children: ReactNode
 }
 
-const LinkItems: Array<LinkItemProps> = [
+const linkItems: Array<LinkItemProps> = [
   { name: 'Home', href: '/', icon: FiHome }
 ]
 
-const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
-  return (
-    <Box
-      bg={useColorModeValue('white', 'gray.900')}
-      borderRight="1px"
-      borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-      w={{ base: 'full', md: 60 }}
-      pos="fixed"
-      h="full"
-      {...rest}
-    >
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontWeight="bold">
-          Roots
-        </Text>
-        <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
-      </Flex>
-      {LinkItems.map(link => (
-        <NavItem key={link.name} icon={link.icon} link={link.href}>
-          {link.name}
-        </NavItem>
-      ))}
-    </Box>
-  )
-}
-
-const Navbar: FC<NavbarProps> = ({ children }) => {
+const Navigation: FC<NavigationProps> = ({ children }) => {
   const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
-      <SidebarContent
+      <Sidebar
         onClose={onClose}
+        linkItems={linkItems}
         display={{ base: 'none', md: 'block' }}
       />
       <Drawer
@@ -91,7 +53,7 @@ const Navbar: FC<NavbarProps> = ({ children }) => {
         onEsc={onClose}
       >
         <DrawerContent>
-          <SidebarContent onClose={onClose} />
+          <Sidebar linkItems={linkItems} onClose={onClose} />
         </DrawerContent>
       </Drawer>
       <Flex
@@ -160,4 +122,4 @@ const Navbar: FC<NavbarProps> = ({ children }) => {
   )
 }
 
-export default Navbar
+export default Navigation
