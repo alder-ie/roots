@@ -74,7 +74,7 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
             <Button onClick={toggleColorMode} variant="ghost">
               {colorMode === 'light' ? <FiMoon /> : <FiSun />}
             </Button>
-            <UserMenu user={user} />
+            {user && <UserMenu user={user} />}
           </Stack>
         </HStack>
       </Flex>

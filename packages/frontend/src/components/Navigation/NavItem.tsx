@@ -19,7 +19,7 @@ const NavItem = ({ icon, link, children }: NavItemProps) => {
         bg={
           link.includes(window.location.pathname.substring(1, 5)) &&
           window.location.pathname.includes(link)
-            ? 'blue.400'
+            ? 'primary.500'
             : 'transparent'
         }
         color={
@@ -48,13 +48,14 @@ const styles = {
     role: 'group',
     cursor: 'pointer',
     _hover: {
-      bg: 'cyan.400',
+      bg: 'primary.400',
       color: 'white'
-    }
+    },
+    fontWeight: 'semibold'
   },
   navItemIcon: {
     mr: '4',
-    mt: '1',
+    mt: '3px',
     fontSize: '16',
     _groupHover: {
       color: 'white'
