@@ -1,12 +1,12 @@
 import {
   Avatar,
   Button,
-  Center,
   Menu,
   MenuButton,
   MenuDivider,
   MenuItem,
-  MenuList
+  MenuList,
+  VStack
 } from '@chakra-ui/react'
 
 interface User {
@@ -20,7 +20,7 @@ interface UserMenuProps {
 
 const UserMenu = ({ user }: UserMenuProps) => {
   return (
-    <Menu>
+    <Menu autoSelect={false}>
       <MenuButton
         as={Button}
         rounded={'full'}
@@ -38,28 +38,38 @@ const UserMenu = ({ user }: UserMenuProps) => {
         />
       </MenuButton>
       <MenuList alignItems={'center'}>
-        <br />
-        <Center>
+        <VStack my={4}>
           <Avatar
-            size={'xl'}
+            size={'lg'}
             src={
               user.avatar
                 ? user.avatar
                 : 'https://avatars.dicebear.com/api/male/username.svg'
             }
           />
-        </Center>
-        <br />
-        <Center>
           <p>{user.name}</p>
-        </Center>
-        <br />
-        <MenuDivider />
-        <MenuItem>Account Settings</MenuItem>
-        <MenuItem>Logout</MenuItem>
+        </VStack>
+        <MenuDivider mx={8} />
+        <MenuItem sx={styles.menuButton}>Account Settings</MenuItem>
+        <MenuItem sx={styles.menuButton}>Logout</MenuItem>
       </MenuList>
     </Menu>
   )
 }
 
 export default UserMenu
+
+const styles = {
+  menuButton: {
+    px: '4',
+    display: 'flex',
+    _hover: {
+      bg: 'primary.400',
+      color: 'white'
+    },
+    _focus: {
+      bg: 'primary.400',
+      color: 'white'
+    }
+  }
+}
