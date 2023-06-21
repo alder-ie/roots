@@ -9,6 +9,7 @@ import {
   Flex,
   HStack,
   IconButton,
+  Skeleton,
   Stack,
   useColorMode,
   useColorModeValue,
@@ -18,6 +19,8 @@ import {
 import Sidebar from './Sidebar'
 import { LinkItemProps } from './Sidebar'
 import UserMenu from './UserMenu'
+import Login from './Login'
+import { useAuth0 } from '@auth0/auth0-react'
 
 interface NavigationProps {
   children: ReactNode
@@ -27,14 +30,10 @@ const linkItems: Array<LinkItemProps> = [
   { name: 'Home', href: '/', icon: FiHome }
 ]
 
-const user = {
-  name: 'John Doe',
-  avatar: ''
-}
-
 const Navigation: FC<NavigationProps> = ({ children }) => {
   const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isAuthenticated, isLoading, user } = useAuth0()
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <Sidebar
@@ -74,7 +73,13 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
             <Button onClick={toggleColorMode} variant="ghost">
               {colorMode === 'light' ? <FiMoon /> : <FiSun />}
             </Button>
-            {user && <UserMenu user={user} />}
+            {isAuthenticated && !isLoading && <UserMenu />}
+            {!isAuthenticated && !isLoading && <Login />}
+            {isLoading && (
+              <Skeleton>
+                <Button />
+              </Skeleton>
+            )}
           </Stack>
         </HStack>
       </Flex>

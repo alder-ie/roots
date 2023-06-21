@@ -9,18 +9,11 @@ import {
   VStack
 } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
+import { useAuth0 } from '@auth0/auth0-react'
 
-interface User {
-  name: string
-  avatar: string
-}
-
-interface UserMenuProps {
-  user: User
-}
-
-const UserMenu = ({ user }: UserMenuProps) => {
+const UserMenu = () => {
   const { t } = useTranslation()
+  const { user, logout } = useAuth0()
   return (
     <Menu autoSelect={false}>
       <MenuButton
@@ -30,35 +23,26 @@ const UserMenu = ({ user }: UserMenuProps) => {
         cursor={'pointer'}
         minW={0}
       >
-        <Avatar
-          size={'sm'}
-          src={
-            user.avatar
-              ? user.avatar
-              : 'https://avatars.dicebear.com/api/male/username.svg'
-          }
-        />
+        <Avatar size={'sm'} src={user?.picture} />
       </MenuButton>
       <MenuList alignItems={'center'}>
         <VStack my={4}>
-          <Avatar
-            size={'lg'}
-            src={
-              user.avatar
-                ? user.avatar
-                : 'https://avatars.dicebear.com/api/male/username.svg'
-            }
-          />
-          <p>{user.name}</p>
+          <Avatar size={'lg'} src={user?.picture} />
+          <p>{user?.name}</p>
         </VStack>
         <MenuDivider mx={8} />
-        <MenuItem sx={styles.menuButton}>
+        <MenuItem as="a" href="/profile" sx={styles.menuButton}>
           {t('navigation.userMenu.profile')}
         </MenuItem>
         <MenuItem sx={styles.menuButton}>
           {t('navigation.userMenu.settings')}
         </MenuItem>
-        <MenuItem sx={styles.menuButton}>
+        <MenuItem
+          sx={styles.menuButton}
+          onClick={() =>
+            logout({ logoutParams: { returnTo: window.location.origin } })
+          }
+        >
           {t('navigation.userMenu.logout')}
         </MenuItem>
       </MenuList>
