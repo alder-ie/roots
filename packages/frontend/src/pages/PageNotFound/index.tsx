@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Button, Card } from '@chakra-ui/react'
+import { Heading, Text, Button, Card } from '@chakra-ui/react'
 
 export default function PageNotFound() {
   return (
