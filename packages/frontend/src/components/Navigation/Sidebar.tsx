@@ -6,6 +6,7 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react'
+import { useTranslation } from 'react-i18next'
 import { IconType } from 'react-icons'
 import NavItem from './NavItem'
 
@@ -21,6 +22,7 @@ export interface LinkItemProps {
 }
 
 const Sidebar = ({ onClose, linkItems, ...rest }: SidebarProps) => {
+  const { t } = useTranslation()
   return (
     <Box
       sx={styles.box}
@@ -31,7 +33,7 @@ const Sidebar = ({ onClose, linkItems, ...rest }: SidebarProps) => {
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <Text fontSize="2xl" fontWeight="bold">
-          Roots
+          {t('app.name')}
         </Text>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>

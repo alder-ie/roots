@@ -1,0 +1,13 @@
+{
+  "app": {
+    "name": "Roots"
+  },
+  "navigation": {
+    "home": "Home",
+    "userMenu": {
+      "profile": "Profile",
+      "settings": "Account Settings",
+      "logout": "Logout"
+    }
+  }
+}

@@ -8,6 +8,7 @@ import {
   MenuList,
   VStack
 } from '@chakra-ui/react'
+import { useTranslation } from 'react-i18next'
 
 interface User {
   name: string
@@ -19,6 +20,7 @@ interface UserMenuProps {
 }
 
 const UserMenu = ({ user }: UserMenuProps) => {
+  const { t } = useTranslation()
   return (
     <Menu autoSelect={false}>
       <MenuButton
@@ -50,8 +52,15 @@ const UserMenu = ({ user }: UserMenuProps) => {
           <p>{user.name}</p>
         </VStack>
         <MenuDivider mx={8} />
-        <MenuItem sx={styles.menuButton}>Account Settings</MenuItem>
-        <MenuItem sx={styles.menuButton}>Logout</MenuItem>
+        <MenuItem sx={styles.menuButton}>
+          {t('navigation.userMenu.profile')}
+        </MenuItem>
+        <MenuItem sx={styles.menuButton}>
+          {t('navigation.userMenu.settings')}
+        </MenuItem>
+        <MenuItem sx={styles.menuButton}>
+          {t('navigation.userMenu.logout')}
+        </MenuItem>
       </MenuList>
     </Menu>
   )
