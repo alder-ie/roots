@@ -33,7 +33,7 @@ const linkItems: Array<LinkItemProps> = [
 const Navigation: FC<NavigationProps> = ({ children }) => {
   const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { isAuthenticated, isLoading, user } = useAuth0()
+  const { isAuthenticated, isLoading } = useAuth0()
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <Sidebar
