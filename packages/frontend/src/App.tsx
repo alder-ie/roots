@@ -6,6 +6,7 @@ import { ProtectedRoute } from './components/ProtectedRoute'
 
 import Home from './pages/Home'
 import Profile from './pages/Profile'
+import PageNotFound from './pages/PageNotFound'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
               path="/profile"
               element={<ProtectedRoute page={Profile} />}
             />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Navigation>
       </Router>
