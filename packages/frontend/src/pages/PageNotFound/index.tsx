@@ -24,8 +24,10 @@ export default function PageNotFound() {
         bgColor="primary.500"
         color="white"
         variant="solid"
+        width={40}
+        mx="auto"
         _hover={{
-          bgColor: 'primary.400'
+          bgColor: 'primary.600'
         }}
       >
         Go to Home
