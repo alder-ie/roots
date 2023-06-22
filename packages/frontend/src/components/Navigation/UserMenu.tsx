@@ -6,6 +6,7 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
+  Text,
   VStack
 } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
@@ -28,7 +29,7 @@ const UserMenu = () => {
       <MenuList alignItems={'center'}>
         <VStack my={4}>
           <Avatar size={'lg'} src={user?.picture} />
-          <p>{user?.name}</p>
+          <Text>{user?.name}</Text>
         </VStack>
         <MenuDivider mx={8} />
         <MenuItem as="a" href="/profile" sx={styles.menuButton}>
@@ -57,11 +58,11 @@ const styles = {
     px: '4',
     display: 'flex',
     _hover: {
-      bg: 'primary.400',
+      bg: 'primary.600',
       color: 'white'
     },
     _focus: {
-      bg: 'primary.400',
+      bg: 'primary.600',
       color: 'white'
     }
   }

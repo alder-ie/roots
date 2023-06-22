@@ -8,7 +8,7 @@ function Login() {
       <Button
         bg="primary.500"
         color="white"
-        _hover={{ bg: 'primary.400' }}
+        _hover={{ bg: 'primary.600' }}
         onClick={() => loginWithRedirect()}
       >
         Login

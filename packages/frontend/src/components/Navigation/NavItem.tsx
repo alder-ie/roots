@@ -48,7 +48,7 @@ const styles = {
     role: 'group',
     cursor: 'pointer',
     _hover: {
-      bg: 'primary.400',
+      bg: 'primary.600',
       color: 'white'
     },
     fontWeight: 'semibold'
