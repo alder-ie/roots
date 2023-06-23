@@ -83,7 +83,7 @@ const Navigation: FC<NavigationProps> = ({ children }) => {
           </Stack>
         </HStack>
       </Flex>
-      <Box ml={{ base: 0, md: 60 }} pt="24" px="6">
+      <Box ml={{ base: 0, md: 60 }} pt="20">
         {children}
       </Box>
     </Box>
