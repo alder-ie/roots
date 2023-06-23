@@ -1,8 +1,8 @@
-import { Heading, Text, Button, Card } from '@chakra-ui/react'
+import { Heading, Text, Button, Box } from '@chakra-ui/react'
 
 export default function PageNotFound() {
   return (
-    <Card textAlign="center" py={10} px={6}>
+    <Box textAlign="center" py={10} px={6}>
       <Heading
         display="inline-block"
         as="h2"
@@ -20,6 +20,8 @@ export default function PageNotFound() {
       </Text>
 
       <Button
+        as="a"
+        href="/"
         colorScheme="teal"
         bgColor="primary.500"
         color="white"
@@ -32,6 +34,6 @@ export default function PageNotFound() {
       >
         Go to Home
       </Button>
-    </Card>
+    </Box>
   )
 }
