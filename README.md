@@ -4,7 +4,7 @@
 
 ## Structure
 
-Roots is a Typescript application with a monorepo structure, powered by [Turbo](https://turbo.build). It uses [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for linting and formatting.
+Roots is a Typescript application with a monorepo structure, powered by [Turbo](https://turbo.build). It uses [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for linting and formatting. It uses [Auth0](https://auth0.com/) for authentication.
 
 ### Frontend
 
