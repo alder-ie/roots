@@ -1,6 +1,6 @@
 # Roots
 
-[WIP] Roots is a solid foundation for building a corporate production application.
+[WIP] Roots is a solid foundation for building an enterprise production application.
 
 ## Structure
 
