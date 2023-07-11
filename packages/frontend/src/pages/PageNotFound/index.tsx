@@ -1,4 +1,4 @@
-import { Heading, Text, Button, Box } from '@chakra-ui/react'
+import { Heading, Text, Button, Box, Link } from '@chakra-ui/react'
 
 export default function PageNotFound() {
   return (
@@ -20,7 +20,7 @@ export default function PageNotFound() {
       </Text>
 
       <Button
-        as="a"
+        as={Link}
         href="/"
         colorScheme="teal"
         bgColor="primary.500"

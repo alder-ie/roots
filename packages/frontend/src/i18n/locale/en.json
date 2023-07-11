@@ -9,5 +9,9 @@
       "settings": "Account Settings",
       "logout": "Logout"
     }
+  },
+  "home": {
+    "title": "Home",
+    "welcome": "Welcome to Roots!"
   }
 }
